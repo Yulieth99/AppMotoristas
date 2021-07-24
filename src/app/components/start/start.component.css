@@ -1,0 +1,53 @@
+.bgc{
+    background-color: #001D3D;
+    color: #FFD60A;
+    height: 6rem;
+}
+.b{
+border-radius: 8px;
+height: 3rem;
+color: black;
+font-size: large ;
+
+}
+
+.orden-dia{
+    
+    border: 2px solid #FFD60A!important;
+   
+}
+.orden-dia:hover{
+    background-color:#92B9DD ;
+    color: white;
+    border: 2px solid #92B9DD!important;
+}
+.orden-tomada{
+    background-color:#FFD60A !important;
+    
+   
+}
+
+.orden-tomada:hover{
+    background-color:#92B9DD ;
+    color: white;
+    border: 2px solid #92B9DD!important;
+}
+
+.orden-realizada{
+    background-color:#92B9DD !important;
+    
+   
+}
+
+.orden-realizada:hover{
+    background-color:#92B9DD ;
+    color: white;
+    border: 2px solid #92B9DD!important;
+}
+.text-d{
+    color: #001D3D;
+
+}
+.text-r{
+    color: #FFD60A;
+}

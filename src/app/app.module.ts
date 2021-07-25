@@ -17,7 +17,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
 import { RequirementsComponent } from './components/requirements/requirements.component';
 import { OrdersTakenComponent } from './components/orders-taken/orders-taken.component';
-import { OrderTakenComponent } from './components/order-taken/order-taken.component'
+import { OrderTakenComponent } from './components/order-taken/order-taken.component';
+import { OrdersCompletedComponent } from './components/orders-completed/orders-completed.component';
+import { LandComponent } from './components/land/land.component'
 
 
 
@@ -31,7 +33,9 @@ import { OrderTakenComponent } from './components/order-taken/order-taken.compon
     RegisterComponent,
     RequirementsComponent,
     OrdersTakenComponent,
-    OrderTakenComponent
+    OrderTakenComponent,
+    OrdersCompletedComponent,
+    LandComponent
   ],
   imports: [
     BrowserModule,

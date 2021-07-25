@@ -9,20 +9,40 @@ import { StartComponent } from './components/start/start.component';
 import { OrdersDayComponent } from './components/orders-day/orders-day.component';
 import { FormsModule } from '@angular/forms';
 import { OrderComponent } from './components/order/order.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatNativeDateModule} from '@angular/material/core';
+import { RequirementsComponent } from './components/requirements/requirements.component';
+import { OrdersTakenComponent } from './components/orders-taken/orders-taken.component';
+import { OrderTakenComponent } from './components/order-taken/order-taken.component'
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     StartComponent,
     OrdersDayComponent,
-    OrderComponent
+    OrderComponent,
+    LoginComponent,
+    RegisterComponent,
+    RequirementsComponent,
+    OrdersTakenComponent,
+    OrderTakenComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule, 
+    MatNativeDateModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,51 @@
+.cont { 
+    background: #92B9DD; 
+    min-height: 100vh; 
+   }
+h3, h2{
+    margin-bottom: 2px;
+}
+
+.wh{
+   
+    height: 100px;
+}
+.t{
+    margin-top: 50%;
+    margin-top: -200px; 
+    height: 551px;
+}
+
+.every{
+    border-radius: 8px;
+    width: 200px;
+    height: 40px;
+    background-color: #FFC300;
+    color: white;
+    font-size: medium;
+    border: none;
+
+}
+
+input{
+    border-radius: 8px !important;    
+    width: 300px !important;
+    margin-top: 4px;
+    border: none;
+}
+
+.bot{
+    width: 150px;
+    height: 40px;
+    background-color:#FFC300 ;
+    border-radius: 8px;
+    border: none;
+}
+
+.date-form{
+    border: none !important;
+    height:38px !important ;
+}
+.img{
+    width: 8px;
+}

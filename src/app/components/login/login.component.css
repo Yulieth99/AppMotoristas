@@ -1,0 +1,31 @@
+.cont { 
+    background: #92B9DD; 
+    min-height: 100vh; 
+   }
+
+.wh{
+   
+    height: 100px;
+}
+
+.every{
+    border-radius: 8px;
+    width: 200px;
+    height: 65px;
+    background-color: #FFC300;
+    color: white;
+    font-size: medium;
+
+}
+
+input{
+    border-radius: 8px !important;    
+}
+
+.bot{
+    width: 150px;
+    height: 40px;
+    background-color:#FFC300 ;
+    border-radius: 8px;
+    border: none;
+}

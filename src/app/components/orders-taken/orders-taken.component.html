@@ -1,8 +1,8 @@
 <div class="container">
   
     <div class="mt-4">
-      <fa-icon [icon]="faArrowAltCircleLeft" class="float-left ml-2"></fa-icon>
-      <fa-icon [icon]="faHome" class="float-right mr-2" style="color:#FFD60A"></fa-icon>
+      <fa-icon [icon]="faArrowAltCircleLeft" class="float-left ml-2" style=" font-size: 20px;"[routerLink]="['../home']"></fa-icon>
+
       <p class="text-wrap text-center td mx-auto">Ordenes  del día tomadas</p>
     </div>
     <table class="table table-striped">
@@ -15,27 +15,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-            <th scope="row"  class="text-center" class="text-center">1</th>
-            <td   class="text-center" class="text-center">0024</td>
-             <td>Supermercado Paiz</td>
+        <tr   *ngFor="let order of ordersDay, index as i"  [routerLink]="['/orderTaken']">
+            <th scope="row"  class="text-center" class="text-center">{{i+1}}</th>
+            <td   class="text-center" class="text-center">{{order.codigo}}</td>
+             <td>{{order.nombreComercio}}</td>
           
         </tr>
-        <tr>
-            <th scope="row"  class="text-center" class="text-center">2</th>
-            <td  class="text-center">0025</td>
-          <td>Supermercado La colonia</td>
-              </tr>
-        <tr>
-            <th scope="row"  class="text-center" class="text-center">3</th>
-            <td  class="text-center">0034</td>
-          <td>Farmacia FarmaCity</td>
-          <tr>
-              <th scope="row"  class="text-center" class="text-center">4</th>
-            <td  class="text-center">0025</td>
-            <td>Supermercado La colonia</td>
-                </tr>
-          
+        
       </tbody>
     </table>
     </div>

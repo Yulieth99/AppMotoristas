@@ -23,9 +23,10 @@ input{
 }
 
 .bot{
-    width: 150px;
+    width: 250px;
     height: 40px;
     background-color:#FFC300 ;
     border-radius: 8px;
     border: none;
+    font-size: larger;
 }

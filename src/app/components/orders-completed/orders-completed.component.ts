@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {  faArrowAltCircleLeft, faHome} from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-orders-completed',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./orders-completed.component.css']
 })
 export class OrdersCompletedComponent implements OnInit {
+  faArrowAltCircleLeft= faArrowAltCircleLeft;
 
   constructor() { }
 

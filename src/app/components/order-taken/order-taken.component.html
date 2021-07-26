@@ -2,8 +2,8 @@
 
 
     <div class="mt-4">
-        <fa-icon [icon]="faArrowAltCircleLeft" class="float-left  my-1 ml-2"></fa-icon>
-        <fa-icon [icon]="faHome" class="float-right mr-2  my-1" style="color:#FFD60A"></fa-icon>
+        <fa-icon [icon]="faArrowAltCircleLeft" class="float-left  my-1 ml-2"  style=" font-size: 21px;"[routerLink]="['../ordersTaken']"></fa-icon>
+        <fa-icon [icon]="faHome" class="float-right mr-2  my-1" style="color:#FFD60A; font-size: 25px;" [routerLink]="['../home']"></fa-icon>
         <h2 class="text-wrap text-center td mx-auto font-weight-light mt-2">Detalles de orden</h2>
     </div>
     <div class="mt-4">
@@ -24,11 +24,11 @@
         <div class=" col-auto my-4 p-0">
             <label class=" sr-only" for="inlineFormCustomSelect">Preference</label>
             <p class="font-weight-bold" style="display: inline;">Estado de orden</p>
-            <select class=" form-control custom-select ml-2" style="width: 150px;" id="inlineFormCustomSelect">
-              <option selected>Elegir...</option>
-              <option class="bg-primary  text-white" value="1">NO SE</option>
-              <option class="bg-warning text-dark" value="2">En camino</option>
-              <option class="bg-success text-white" value="2">Completada</option>
+            <select class=" form-control custom-select ml-2" style="width: 250px;" id="inlineFormCustomSelect">
+              <option selected>En cola...</option>
+              <option class="" value="1">En proceso de compra</option>
+              <option class="" value="2">En camino</option>
+              <option class="" value="2">Completada</option>
               
             </select>
           </div>
@@ -95,7 +95,7 @@
           
         </tbody>
       </table>
-    <div class="border my-3">
+    <div class="border mt-3 mb-5" >
         <p class="font-weight-bold float-right mt-3">Total: <span class="mx-2 px-2" style="background-color: #FFD60A
             ;"> L. 1000</span></p>
     </div>

@@ -51,3 +51,14 @@ font-size: large ;
 .text-r{
     color: #FFD60A;
 }
+.k{
+    width: 15rem;
+    background-color: tomato;
+    color: white;
+
+
+}
+
+.fa-z{
+    font-size: 23px !important;
+}

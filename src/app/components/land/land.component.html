@@ -10,11 +10,12 @@
         </div>
         <div class="d-flex justify-content-center mt-3"><p class="every text-center text-wrap pt-2">Lior - Motoristas <br> ¡Todo en tus manos!</p></div>
         <div class="">
-        <button type="button" class="mx-auto  bot mt-4 " style="background: rgba(0, 53, 102, 0.72);" placeholder="">Registrarse</button>
-         <button type="button" class=" mx-auto bot mt-4  " style="background-color: #003566;"  placeholder="">Iniciar sesión</button> 
+        <button type="button" class="mx-auto  bot mt-4 "  [routerLink]="['/register']" style="background: rgba(0, 53, 102, 0.72);" placeholder="">Registrarse</button>
+         <button type="button" class=" mx-auto bot mt-4  " [routerLink]="['/login']" style="background-color: #003566;"  placeholder="">Iniciar sesión</button> 
          
 
         </div>       
         </div>
-      
+        <router-outlet></router-outlet>
+
 </div>

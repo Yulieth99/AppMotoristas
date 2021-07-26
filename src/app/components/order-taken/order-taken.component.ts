@@ -10,6 +10,7 @@ import {  faArrowAltCircleLeft, faHome} from '@fortawesome/free-solid-svg-icons'
 export class OrderTakenComponent implements OnInit {
   faArrowAltCircleLeft = faArrowAltCircleLeft;
   faHome = faHome;
+  
 
 
   constructor() { }

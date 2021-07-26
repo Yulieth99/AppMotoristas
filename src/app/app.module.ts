@@ -19,7 +19,10 @@ import { RequirementsComponent } from './components/requirements/requirements.co
 import { OrdersTakenComponent } from './components/orders-taken/orders-taken.component';
 import { OrderTakenComponent } from './components/order-taken/order-taken.component';
 import { OrdersCompletedComponent } from './components/orders-completed/orders-completed.component';
-import { LandComponent } from './components/land/land.component'
+import { LandComponent } from './components/land/land.component';
+import { OrderCompliteComponent } from './components/order-complite/order-complite.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -35,7 +38,8 @@ import { LandComponent } from './components/land/land.component'
     OrdersTakenComponent,
     OrderTakenComponent,
     OrdersCompletedComponent,
-    LandComponent
+    LandComponent,
+    OrderCompliteComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,8 @@ import { LandComponent } from './components/land/land.component'
     BrowserAnimationsModule,
     MatDatepickerModule, 
     MatNativeDateModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

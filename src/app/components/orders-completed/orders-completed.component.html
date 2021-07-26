@@ -1,1 +1,62 @@
-<p>orders-completed works!</p>
+<div class="container">
+  
+    <div class="mt-4">
+      <fa-icon [icon]="faArrowAltCircleLeft" class="float-left ml-2" style="font-size: 21px;" [routerLink]="['../home']"></fa-icon>
+     
+      <h2 class="text-wrah2 text-center td mx-auto">Ordenes Completadas</h2>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr class="">
+          <th scope="col" class=" p-0 th"><p class=" text-center  my-2">Fecha</p></th>
+          <th scope="col" class=" p-0 th"><p  class=" text-wrap text-center my-2 " > Código orden</p></th>
+          
+         
+        </tr>
+      </thead>
+      <tbody>
+        <tr  [routerLink]="['/order']">
+          <td class="text-center">12/01/2020</td>
+          <td   class="text-center" class="text-center">0024</td>
+          
+          
+        </tr>
+        <tr>
+          <td class="text-center">12/01/2020</td>
+          <td  class="text-center">0025</td>
+         
+              </tr>
+        <tr>
+            <td class="text-center">12/01/2020</td>
+            <td  class="text-center">0034</td>
+          
+          <tr>
+            <td class="text-center">12/01/2020</td>
+            <td  class="text-center">0025</td>
+            
+                </tr>
+          <tr>
+                <td class="text-center">12/01/2020</td>
+            <td  class="text-center">0034</td>
+            
+            <tr>
+                <td class="text-center">12/01/2020</td>
+                <td  class="text-center">0025</td>
+              
+                  </tr>
+            <tr> 
+                <td class="text-center">12/01/2020</td>
+                <td  class="text-center">0034</td>
+            <tr> 
+                <td class="text-center">12/01/2020</td>
+                <td scope="row" class="text-center">0034</td>
+              
+  
+          
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    
+  
+  

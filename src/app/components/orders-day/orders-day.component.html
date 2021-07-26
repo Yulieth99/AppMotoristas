@@ -1,9 +1,9 @@
 <div class="container">
   
   <div class="mt-4">
-    <fa-icon [icon]="faArrowAltCircleLeft" class="float-left ml-2"></fa-icon>
-    <fa-icon [icon]="faHome" class="float-right mr-2" style="color:#FFD60A"></fa-icon>
-    <p class="text-wrap text-center td mx-auto">Ordenes  del día disponibles</p>
+    <fa-icon [icon]="faArrowAltCircleLeft" class="float-left ml-2" style="font-size: 21px;" [routerLink]="['../home']"></fa-icon>
+   
+    <h2 class="text-wrap text-center td mx-auto">Ordenes del día disponibles</h2>
   </div>
   <table class="table table-striped">
     <thead>
@@ -14,42 +14,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row"  class="text-center" class="text-center">0024</th>
-        <td>Supermercado Paiz</td>
+      <tr *ngFor="let order of ordersDay, index as i"  [routerLink]="['/order']">
+        <th scope="row"  class="text-center" class="text-center">{{order.codigo}}</th>
+        <td>{{order.nombreComercio}}</td>
         
       </tr>
-      <tr>
-        <th scope="row" class="text-center">0025</th>
-        <td>Supermercado La colonia</td>
-            </tr>
-      <tr>
-        <th scope="row" class="text-center">0034</th>
-        <td>Farmacia FarmaCity</td>
-        <tr>
-          <th scope="row" class="text-center">0025</th>
-          <td>Supermercado La colonia</td>
-              </tr>
-        <tr>
-          <th scope="row" class="text-center">0034</th>
-          <td>Farmacia FarmaCity</td>
-          <tr>
-            <th scope="row" class="text-center">0025</th>
-            <td>Supermercado La colonia</td>
-                </tr>
-          <tr>
-            <th scope="row" class="text-center">0034</th>
-            <td>Farmacia FarmaCity</td>
-            <tr>
-              <th scope="row" class="text-center">0025</th>
-              <td>Supermercado La colonia</td>
-                  </tr>
-            <tr>
-              <th scope="row" class="text-center">0034</th>
-              <td>Farmacia FarmaCity</td>
-
-        
-      </tr>
+      
     </tbody>
   </table>
   </div>

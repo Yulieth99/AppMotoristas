@@ -1,6 +1,9 @@
 <div class="cont ">
     <div class="container " >
-        <div class="pt-5 d-flex justify-content-center">
+        <div class="pt-5 pl-3">
+            <fa-icon [icon]="faArrowAltCircleLeft" class=" " style="font-size: 23px;" [routerLink]="['']"></fa-icon>  </div>
+        
+        <div class="pt-2 d-flex justify-content-center">
             <img class="  wh " src="..\..\assets\img\logo-lior.png" alt="">
         </div>
         <div class="d-flex justify-content-center mt-1 "><h2 class=" text-center pt-2">¡Reparte con nosotros!  </h2></div>
@@ -10,22 +13,22 @@
 
         </div>
         <div class="d-flex justify-content-center">
-            <form action="">
+            <form [formGroup]="formLogin" >
                 <div class="mt-4 ">
                     <h3>Formuario de regristro</h3>
-                <input type="text" class="form-control  " name="" id="" placeholder="Nombre ">
-                <input type="text" class="form-control   " id="" placeholder="Apellidos">
-                <input type="text" class="form-control  " name="" id="" placeholder="Correo electrónico"> 
-                <input type="text" class="form-control  r " id="" placeholder="Contraseña">
-                <input type="text" class="form-control  r " id="" placeholder="Repetir contraseña">
-                <input class=" form-control  date-form  " matInput [matDatepicker]="picker" placeholder="Fecha de nacimiento" style="width: 180px !important;display: inline;">
+                <input type="text" class="form-control  " formControlname="nombre"  placeholder="Nombre ">
+                <input type="text" class="form-control   " formControlname="apellidos" placeholder="Apellidos">
+                <input type="text" class="form-control  "  formControlname="correo" placeholder="Correo electrónico"> 
+                <input type="password" class="form-control" formControlname="contrasena" placeholder="Contraseña">
+                <input type="password" class="form-control" formControlname="repcontrasena" placeholder="Repetir contraseña">
+                <input class=" form-control  date-form " formControlname="fechaNacimiento" matInput [matDatepicker]="picker" placeholder="Fecha de nacimiento" style="width: 180px !important;display: inline;">
                
                 <mat-datepicker-toggle  matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
                 <div class=" col-auto my-1">
                     <label class=" sr-only" for="inlineFormCustomSelect">Preference</label>
                     <p class="font-weight-bold" style="display: inline;">Género</p>
-                    <select class=" form-control custom-select ml-2" style="width: 150px;" id="inlineFormCustomSelect">
+                    <select formControlname="genero" class=" form-control custom-select ml-2" style="width: 150px;" id="inlineFormCustomSelect">
                       <option selected>Elegir...</option>
                       <option value="1">Femenino</option>
                       <option value="2">Masculino</option>
@@ -34,13 +37,19 @@
                   </div>
                 <input type="text" class="form-control  " id="" placeholder="Id Ejm. 0606199900589">
                 <div class="mt-2">
-                    <p class="font-weight-bold " style="color: white; display: inline;  text-decoration: underline;">Subir imagen de   targeta de identidad <button class="btn rounded-circle ml-3" style="background-color: #FFC300;"><fa-icon [icon]="faFileImage"></fa-icon></button> </p>
+                                    
+                    <p class="font-weight-bold " style="color: white; display: inline;  text-decoration: underline;">Subir imagen de   targeta de identidad 
+                        <label for="file-upload" class=" btn rounded-circle ml-3" style="background-color: #FFC300;">
+                            <fa-icon [icon]="faFileImage"></fa-icon>
+                        </label>
+                        <input formControlname="imagen" (change)="capturarFile($event)" accept=".jpg,.png,.jpeg" id="file-upload" type="file"/>
+                    </p>
                    
 
                 </div>
                 <div class="d-flex justify-content-center">
             
-                    <button type="button" class="bot mt-4 font-weight-bold  "  placeholder="">Registrarse</button>
+                    <button type="button" [disabled]="!formLogin.valid" (click)="send()" class="bot mt-4 font-weight-bold  " >Registrarse</button>
         
                 </div>
                </div> 
@@ -49,6 +58,7 @@
             
                  
         </div>
-        <div class="d-flex justify-content-center mt-4"><p class=" text-center">¿Ya tienes cuenta? <br> <span style="color: white;">Iniciar sesión</span></p>
+        <div class="d-flex justify-content-center mt-4"><p class=" text-center" style="font-size: large;">¿Ya tienes cuenta? <br> <span class="font-weight-bold" [routerLink]="['../login']" style="color: white;">Iniciar sesión</span></p>
         </div>
+        
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { faFileImage } from '@fortawesome/free-solid-svg-icons'
+import { faFileImage, faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -8,11 +9,32 @@ import { faFileImage } from '@fortawesome/free-solid-svg-icons'
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
+  public formLogin = new FormGroup({
+  nombre: new FormControl(""),
+  apellidos: new FormControl(""),
+  correo: new FormControl("",),
+  contrasena: new FormControl(""),
+  repContrasena: new FormControl(""),
+  fechaNacimiento:new FormControl(""),
+  genero: new FormControl(""),
+  imagen:new FormControl(""),
+
+  })
+ 
+  constructor( private formBulder: FormBuilder) { }
+
+  
   faFileImage = faFileImage;
-
-  constructor() { }
-
+  faArrowAltCircleLeft=faArrowAltCircleLeft;
+  
   ngOnInit(): void {
+    
   }
+  send(): any{
+ console.log(this.formLogin.valid);
+  }
+  capturarFile(event:any){
 
+  }
 }

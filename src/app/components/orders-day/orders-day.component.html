@@ -1,4 +1,6 @@
-<div class="container">
+
+<div *ngIf="verOdernesDia">
+  <div class="container">
   
   <div class="mt-4">
     <fa-icon [icon]="faArrowAltCircleLeft" class="float-left ml-2" style="font-size: 21px;" [routerLink]="['../home']"></fa-icon>
@@ -8,20 +10,23 @@
   <table class="table table-striped">
     <thead>
       <tr class="">
-        <th scope="col" class=" p-0 th"><p  class="tc text-wrap text-center mx-auto m-0 " > Código orden</p></th>
+        <th scope="col" class=" p-0 th"><p  class="tc text-wrap text-center mx-auto m-0 " > #</p></th>
         <th scope="col" class=" p-0 th"><p class=" text-center  "> Nombre establecimiento</p></th>
        
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let order of ordersDay, index as i"  [routerLink]="['/order']">
-        <th scope="row"  class="text-center" class="text-center">{{order.codigo}}</th>
-        <td>{{order.nombreComercio}}</td>
+      <tr *ngFor="let order of ordersDay, index as i" >
+        <th scope="row"  class="text-center" class="text-center">{{i +1}}</th>
+        <td (click)="verOrden(order._id)">{{order.comercio.nombreComercio}}</td>
         
       </tr>
       
     </tbody>
   </table>
   </div>
+</div>
+
+<app-order #detalleOrden (onBack)="ver()"></app-order>
   
 

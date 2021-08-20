@@ -1,82 +1,39 @@
-<div class="container">
+
+<div *ngIf="verOrden">
+<div class="container" *ngFor="let orden of orden">
 
 
 <div class="mt-4">
-    <fa-icon [icon]="faArrowAltCircleLeft" class="float-left  my-1 ml-2"  style=" font-size: 21px"[routerLink]="['../ordersDay']"></fa-icon>
+    <fa-icon [icon]="faArrowAltCircleLeft" class="float-left  my-1 ml-2" (click)="goBack()" style=" font-size: 21px"></fa-icon>
     <fa-icon [icon]="faHome" class="float-right mr-2  my-1" style="color:#FFD60A ; font-size: 25px;"[routerLink]="['../home']"></fa-icon>
     <h2 class="text-wrap text-center td mx-auto font-weight-light mt-2">Detalles de orden</h2>
 </div>
 <div class="mt-4">
     <div>
-        <p class="font-weight-bold">Código orden: <span class="font-weight-normal">0024</span></p>
+        <p class="font-weight-bold">Código orden: <span class="font-weight-normal">{{orden._id}}</span></p>
     </div>
     <div>
         <p class="font-weight-bold">Nombre </p>
-        <p class="font-weight-bold">establecimiento: <span class="font-weight-normal">Supermercado La colonia</span></p>
+        <p class="font-weight-bold">establecimiento: <span class="font-weight-normal">{{orden.comercio.nombreComercio}}</span></p>
     </div>
     <div>
-        <p class="font-weight-bold">Dirección: <span class="font-weight-normal">119, Choluteca, Choluteca</span></p>
+        <!-- <p class="font-weight-bold">Dirección: <span class="font-weight-normal">119, Choluteca, Choluteca</span></p> -->
         <button type="text" class=" mt-1 mapa float-right">VER MAPA </button>
     </div>
 </div>
 <table class="table mt-5">
     
     <tbody class="pt-4">
-      <tr>
-        <th scope="row" class="pt-4">1</th>
-        <td><img src="../../assets/img/Ellipse 4.png" alt=""></td>
-        <td class="pt-4">Vacio Choice X Lb</td>
+      <tr *ngFor="let producto of productos, index as i">
+        <th scope="row" class="pt-4">{{1+i}}</th>
+        <td><img class="rounded-circle  render mt-1" src="{{base_url}}{{producto.imagenProducto}}" alt=""></td>
+        <td class="pt-4">{{producto.nombreProducto}}</td>
         <td class="font-weight-bold text-center">
             <span>Cantidad</span><br>
-            <span>- 2 +</span><br>
-            <span>L.300</span></td>
+            <span>{{producto.cantidad}}</span><br>
+            <span>Precio c/u {{producto.precio}}</span></td>
       </tr>
-      <tr>
-        <th scope="row" class="pt-4">2</th>
-        <td><img src="../../assets/img/Ellipse 4 (1).png" alt=""></td>
-        <td class="pt-4">Tomahawk Steak Choice X Lb</td>
-        <td class="font-weight-bold text-center">
-            <span>Cantidad</span><br>
-            <span>- 1 +</span><br>
-            <span>L. 600.33</span></td>
-      </tr>
-      <tr>
-        <th scope="row" class="pt-4">3</th>
-        <td><img src="../../assets/img/Ellipse 4 (2).png" alt=""></td>
-        <td class="pt-4">Tomahawk Steak Choice X Lb</td>
-        <td class="font-weight-bold text-center">
-            <span>Cantidad</span><br>
-            <span>- 3 +</span><br>
-            <span>L. 600</span></td>
-      </tr>
-      <tr>
-        <th scope="row" class="pt-4">4</th>
-        <td><img src="../../assets/img/Ellipse 4 (3).png" alt=""></td>
-        <td class="pt-4">Tomahawk Steak X Lb</td>
-        <td class="font-weight-bold text-center">
-            <span>Cantidad</span><br>
-            <span>- 1 +</span><br>
-            <span>L. 150</span></td>
-      </tr>
-      <tr>
-        <th scope="row" class="pt-4">5</th>
-        <td><img src="../../assets/img/Ellipse 4 (4).png" alt=""></td>
-        <td class="pt-4">Tomahawk Steak Choice X Lb</td>
-        <td class="font-weight-bold text-center">
-            <span>Cantidad</span><br>
-            <span>- 1 +</span><br>
-            <span>L. 180</span></td>
-      </tr>
-      <tr>
-        <th scope="row" class="pt-4">6</th>
-        <td><img src="../../assets/img/Ellipse 4 (1).png" alt=""></td>
-        <td class="pt-4">Tomahawk Lair Steak Choice X Lb</td>
-        <td class="font-weight-bold text-center">
-            <span>Cantidad</span><br>
-            <span>- 2 +</span><br>
-            <span>L. 500</span></td>
-      </tr>
-     
+
     
       
     </tbody>
@@ -87,7 +44,8 @@
 </div>
 <br >
 <div class=" mt-4 mb-5 d-flex justify-content-center">
-    <button type="text" class="btn mb-5" style="color: white;background-color: #3DE302;">TOMAR ORDEN</button>
+    <button type="text" class="btn mb-5" style="color: white;background-color: #3DE302;" (click)="tomarOrden(orden._id)">TOMAR ORDEN</button>
 
+</div>
 </div>
 </div>

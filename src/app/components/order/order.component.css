@@ -24,3 +24,7 @@ table tbody{
     margin-top: auto;
     margin-bottom: auto;
 }
+.render{
+    width: 2rem;
+    height: 2rem;
+}

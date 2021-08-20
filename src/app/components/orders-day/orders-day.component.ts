@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {  faArrowAltCircleLeft, faHome} from '@fortawesome/free-solid-svg-icons';
+import { OrdenesService } from 'src/app/services/ordenes.service';
+import { OrderComponent } from '../order/order.component';
 
 
 @Component({
@@ -11,19 +13,45 @@ import {  faArrowAltCircleLeft, faHome} from '@fortawesome/free-solid-svg-icons'
 export class OrdersDayComponent implements OnInit {
   faArrowAltCircleLeft = faArrowAltCircleLeft;
   faHome = faHome;
-  ordersDay:any[] = [
-    {codigo:"0025", nombreComercio:"Supermercado Paiz",},
-    {codigo:"0026", nombreComercio:"Supermercado La colonia",},
-    {codigo:"0027", nombreComercio:"Supermercado Paiz",},
-    {codigo:"0028", nombreComercio:"Farmacia FarmaCity",},
-    {codigo:"0029", nombreComercio:"Supermercado Paiz",},
-    {codigo:"0030", nombreComercio:"Farmacia FarmaCity",},
-    
-  ]
 
-  constructor() { }
+  verOdernesDia:boolean = true
+
+  ordersDay:any = []
+
+  constructor(private ordenesService:OrdenesService) { }
 
   ngOnInit(): void {
+
+    this.listarOrdenes()
+
+
   }
+
+@ViewChild('detalleOrden') detalleOrden !:OrderComponent
+
+ listarOrdenes(){
+  
+  let d = new Date();
+  let date = d.getDate() + "-" + d.getMonth() + "-" + d.getFullYear();
+  this.ordenesService.obtenerOrdenesDia(date).subscribe(res=>{    
+    this.ordersDay = res
+    console.log("Ordenes dia",this.ordersDay)
+
+    },error=>{
+      console.log(error);
+    });
+
+
+ }
+
+
+ verOrden(idOrden:string){
+   this.verOdernesDia = false
+ this.detalleOrden.detalleOrden(idOrden)
+
+ }
+ ver(){
+   this.verOdernesDia = true
+ }
 
 }

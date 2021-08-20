@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +24,7 @@ import { OrdersCompletedComponent } from './components/orders-completed/orders-c
 import { LandComponent } from './components/land/land.component';
 import { OrderCompliteComponent } from './components/order-complite/order-complite.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 
 
@@ -39,7 +42,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     OrderTakenComponent,
     OrdersCompletedComponent,
     LandComponent,
-    OrderCompliteComponent
+    OrderCompliteComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +56,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatNativeDateModule,
     MatInputModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

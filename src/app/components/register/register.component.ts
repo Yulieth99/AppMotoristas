@@ -25,8 +25,6 @@ export class RegisterComponent implements OnInit {
 
   previsualizacion:string = "false"
 
- 
- 
   constructor(private formBulder: FormBuilder,
               private generalService:GeneralService,
               private router:Router,
@@ -58,7 +56,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(){
 
-    
+ 
   }
 
 

@@ -15,12 +15,16 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) { }
 
+  obtenerUsuarios(): Observable<any> {
+    return this.httpClient.get(`${base_url}/api/usuarios`, {})
+  }
+
   ingresar(formData: FormData) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.httpClient.post(`${base_url}/api/auth/ingreso`, formData, { headers: headers })
       .pipe(
         tap((res: any) => {
-          localStorage.setItem('token', res.token);
+          //localStorage.setItem('token', res.token);
         })
       );
   }

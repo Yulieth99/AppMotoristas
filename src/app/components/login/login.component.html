@@ -1,19 +1,34 @@
- <div class="cont ">
-    <div class="container " >
+<div class="cont ">
+    <div class="container ">
         <div class="pt-5 pl-3">
-            <fa-icon [icon]="faArrowAltCircleLeft" class=" " style="font-size: 23px;" [routerLink]="['']"></fa-icon>  </div>
+            <fa-icon [icon]="faArrowAltCircleLeft" class=" " style="font-size: 23px;" [routerLink]="['']"></fa-icon>
+        </div>
         <div class="pt-2 d-flex justify-content-center">
-        
+
             <img class="  wh " src="..\..\assets\img\logo-lior.png" alt="">
         </div>
-        <div class="d-flex justify-content-center mt-3"><p class="every text-center pt-3">Lior - Motoristas <br> ¡Todo en tus manos!</p></div>
+        <div class="d-flex justify-content-center mt-3">
+            <p class="every text-center pt-3">Lior - Motoristas <br> ¡Todo en tus manos!</p>
+        </div>
         <div class="d-flex justify-content-center">
-            <div class="mt-4 "><input type="text" class="form-control font-weight-bold text-center" name="" id="" placeholder="Correo electrónico"><br> 
-            <input type="text" class="form-control font-weight-bold text-center " id="" placeholder="Contraseña">
-            <button type="button" class="bot mt-4 font-weight-bold  ml-4" style="width: 155px;" [routerLink]="['../home']" placeholder="">Iniciar sesión</button>
-        </div>       
+            <div class="mt-4 ">
+                <form [formGroup]="loginForm">
+                    <input type="text" class="form-control font-weight-bold text-center" name="" formControlName="email"
+                        placeholder="Correo electrónico"><br>
+                    <input type="password" class="form-control font-weight-bold text-center mb-2" formControlName="password"
+                        placeholder="Contraseña">
+                    <strong *ngIf="mensajeError" class="text-danger d-block text-center">{{mensajeError}}</strong>
+                    <div>
+                        <button type="button" (click)="ingresar()" class="bot mt-2 font-weight-bold  ml-4"
+                        style="width: 155px;" placeholder="">Iniciar sesión</button>
+                    </div> 
+                    
+                </form>
+            </div>
         </div>
-        <div class="d-flex justify-content-center mt-4"><p class=" text-center" style="font-size:large;">¿Aún no tienes cuenta? <br> <span style="color: white;" class="font-weight-bold "  [routerLink]="['../register']" >Regístrate</span></p>
+        <div class="d-flex justify-content-center mt-4">
+            <p class=" text-center" style="font-size:large;">¿Aún no tienes cuenta? <br> <span style="color: white;"
+                    class="font-weight-bold " [routerLink]="['../register']">Regístrate</span></p>
         </div>
-</div>
-<router-outlet></router-outlet>
+    </div>
+    <router-outlet></router-outlet>

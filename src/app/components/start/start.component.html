@@ -27,7 +27,7 @@
             Ordenes  entregadass<fa-icon  [icon]="faCheckCircle" class="text-r float-right "></fa-icon>
         </div>
        
-        <div class="row justify-content-center   mt-5" [routerLink]="['']">
+        <div class="row justify-content-center mt-5" (click)="cerrarSesion()">
           <div class="col-10 b  k">
               <h2 class="mt-2 text-center">Cerrar Sesión</h2>
           </div>

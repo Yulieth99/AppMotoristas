@@ -47,18 +47,17 @@ export class OrderComponent implements OnInit {
   }
 
   tomarOrden(idOrden:string){
-    let idMotorista = '611edd06a9a3a7379060b39c'
+    let idMotorista = '611f6ddfe4f8e12e70b06003'
     this.motoristaService.tomarOrden(idMotorista, idOrden).subscribe(res=>{ 
       this.verOrden = false
-      this.onBack.emit()
-      let estado = "procesando"
+      let estado = "procesando"  
+       let data ={
+         "estado":"procesando",
+         "motorista":idMotorista
+         }
 
-  
-      const formData = new FormData()
-
-      formData.append("estado",estado)
-
-      this.ordenesService.editarOrden(idOrden,formData).subscribe(res=>{
+      this.ordenesService.editarOrden(idOrden,data).subscribe(res=>{
+        this.onBack.emit()
 
            console.log("Esta es la respuesta",res)
        },error=>{

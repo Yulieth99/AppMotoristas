@@ -9,16 +9,16 @@
       <thead>
         <tr class="">
           <th scope="col" class=" p-0 th"><p  class="text-wrap text-center  " ></p></th>
-          <th scope="col" class=" p-0 th"><p  class="tc text-wrap text-center mx-auto m-0 " > Código orden</p></th>
-          <th scope="col" class=" p-0 th"><p class=" text-center text-wrap "> Nombre establecimiento</p></th>
+          <th scope="col" class=" p-0 th mt-1"><p  class="text-wrap text-center mx-auto m-0 " > Fecha</p></th>
+          <th scope="col" class=" p-0 th mt-1"><p class=" ttext-wrap text-center mx-auto m-0 "> Nombre establecimiento</p></th>
          
         </tr>
       </thead>
       <tbody>
-        <tr   *ngFor="let order of ordersDay, index as i"  [routerLink]="['/orderTaken']">
+        <tr   *ngFor="let order of ordersDay, index as i" (click)="verOrden(order._id)">
             <th scope="row"  class="text-center" class="text-center">{{i+1}}</th>
-            <td   class="text-center" class="text-center">{{order.codigo}}</td>
-             <td>{{order.nombreComercio}}</td>
+            <td   class="text-center" class="text-center">{{order.fecha}}</td>
+             <td>{{order.comercio.nombreComercio}}</td>
           
         </tr>
         

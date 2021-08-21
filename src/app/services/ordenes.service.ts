@@ -19,12 +19,15 @@ export class OrdenesService {
   obtenerDetalleOrden(idOrden:string):Observable<any>{
     return this.httpClient.get(`${base_url}/api/ordenes/${idOrden}`,{})    
     }
-
+    
+    
+  obtenerOrdenesEntregadas(idMotorista:string):Observable<any>{
+      return this.httpClient.get(`${base_url}/api/ordenes/motorista/${idMotorista}/entregadas`,{})    
+      }
   
 
-    
-    
-    editarOrden(idOrden:string, data:FormData):Observable<any>{
+
+    editarOrden(idOrden:string, data:any):Observable<any>{
     return this.httpClient.put(`${base_url}/api/ordenes/${idOrden}`,data)    
     }
     

@@ -15,10 +15,19 @@ export class MotoristaService {
   tomarOrden(idMotorista:string,idOrden:string):Observable<any>{
     return this.httpClient.put(`${base_url}/api/motoristas/${idMotorista}/nuevaOrden/${idOrden}`,{})    
     }
+  
+    ordenEntregada(idMotorista:string,idOrden:string):Observable<any>{
+      return this.httpClient.put(`${base_url}/api/motoristas/${idMotorista}/ordenEntregada/${idOrden}`,{})    
+      }
 
   registroMotorista(formData:FormData):Observable<any>{
     return this.httpClient.post(`${base_url}/api/motoristas/`,formData)    
     }
+
+    obtenerOrdenesTomadas(idMotorista:string):Observable<any>{
+      return this.httpClient.get(`${base_url}/api/ordenes/motorista/${idMotorista}`,{})    
+      }
+      
     
   
 }

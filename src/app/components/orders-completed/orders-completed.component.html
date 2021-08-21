@@ -8,6 +8,8 @@
     <table class="table table-striped">
       <thead>
         <tr class="">
+          <th scope="col" class=" p-0 th"><p class=" text-center  my-2">#</p></th>
+
           <th scope="col" class=" p-0 th"><p class=" text-center  my-2">Fecha</p></th>
           <th scope="col" class=" p-0 th"><p  class=" text-wrap text-center my-2 " > Código orden</p></th>
           
@@ -15,45 +17,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr  [routerLink]="['/order']">
-          <td class="text-center">12/01/2020</td>
-          <td   class="text-center" class="text-center">0024</td>
+        <tr *ngFor='let orden of ordenes, index as i'>
+          <td class="text-center">{{i + 1}}</td>
+          <td class="text-center">{{orden.fecha}}</td>
+          <td   class="text-center" class="text-center">{{orden._id}}</td>
           
           
         </tr>
-        <tr>
-          <td class="text-center">12/01/2020</td>
-          <td  class="text-center">0025</td>
-         
-              </tr>
-        <tr>
-            <td class="text-center">12/01/2020</td>
-            <td  class="text-center">0034</td>
-          
-          <tr>
-            <td class="text-center">12/01/2020</td>
-            <td  class="text-center">0025</td>
-            
-                </tr>
-          <tr>
-                <td class="text-center">12/01/2020</td>
-            <td  class="text-center">0034</td>
-            
-            <tr>
-                <td class="text-center">12/01/2020</td>
-                <td  class="text-center">0025</td>
-              
-                  </tr>
-            <tr> 
-                <td class="text-center">12/01/2020</td>
-                <td  class="text-center">0034</td>
-            <tr> 
-                <td class="text-center">12/01/2020</td>
-                <td scope="row" class="text-center">0034</td>
-              
-  
-          
-        </tr>
+        
       </tbody>
     </table>
     </div>

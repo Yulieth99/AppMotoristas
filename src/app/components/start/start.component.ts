@@ -16,4 +16,8 @@ export class StartComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  cerrarSesion() {
+    localStorage.removeItem('token');
+  }
+
 }

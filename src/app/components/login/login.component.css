@@ -19,7 +19,8 @@
 }
 
 input{
-    border-radius: 8px !important;    
+    border-radius: 8px !important;   
+    width: 20rem; 
 }
 
 .bot{

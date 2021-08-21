@@ -4,6 +4,8 @@ import { Router, ActivatedRoute, Params} from '@angular/router';
 import { OrdenesService } from 'src/app/services/ordenes.service';
 import { environment } from 'src/environments/environment';
 import { MotoristaService } from 'src/app/services/motorista.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
+
 
 
 @Component({
@@ -19,13 +21,15 @@ export class OrderTakenComponent implements OnInit {
   idOrden:string= ''
   orden:any =[]
   estado:string=' '
-  
+  usuario:any
+  idUsuarioActual:string =''
 
 
   constructor(private routerte:Router,
               private route: ActivatedRoute,
               private ordenesService:OrdenesService,
-              private motoristaService:MotoristaService) { }
+              private motoristaService:MotoristaService,
+              private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
 
@@ -35,7 +39,12 @@ export class OrderTakenComponent implements OnInit {
     this. detalleOrdenTomada()  },error=>{
         console.log(error);
       });
+
+   this.usuario = localStorage.getItem('usuario') 
+   this.obtenerIdUsuario()
   }
+
+
 
 
   detalleOrdenTomada(){
@@ -52,6 +61,31 @@ export class OrderTakenComponent implements OnInit {
       });
 
 
+  }
+
+
+  
+ 
+  obtenerIdUsuario() {
+  
+    this.usuarioService.obtenerUsuarios().subscribe(
+      res => {
+        console.log("esta es la respuesta",res);
+        for (let i = 0; i < res.length; i++) {
+          let usuario = this.usuario.replace(/"/g, '');
+         
+          if(res[i].email == usuario){
+            
+            this.idUsuarioActual = res[i]._id;
+           
+          }
+          
+        }
+     
+      }, error => {
+        console.error(error);
+      }
+    )
   }
   cambiarEsadotOrden(){
     console.log("estado de la ordenYULO", this.estado)
@@ -70,8 +104,7 @@ export class OrderTakenComponent implements OnInit {
 
     }else{
       nuevoEstado = "entregada"
-      let idMotorista = '611f6ddfe4f8e12e70b06003'
-      this.motoristaService.tomarOrden(idMotorista, this.idOrden).subscribe(res=>{ 
+      this.motoristaService.ordenEntregada(this.idUsuarioActual, this.idOrden).subscribe(res=>{ 
          let data ={
            "estado":"entregada",
            }

@@ -19,7 +19,7 @@ export class UsuarioService {
   constructor(private httpClient: HttpClient) { }
 
   obtenerUsuarios(): Observable<any> {
-    return this.httpClient.get(`${base_url}/usuarios`, {})
+    return this.httpClient.get(`${base_url}/api/usuarios`, {})
   }
 
 

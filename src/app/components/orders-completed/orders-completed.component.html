@@ -5,7 +5,13 @@
      
       <h2 class="text-wrah2 text-center td mx-auto">Ordenes Completadas</h2>
     </div>
-    <table class="table table-striped">
+
+    <div class="text-center" *ngIf="ordenes.length == 0"> 
+      <h4 class="text-wrah2 text-center  mx-auto" >TODAVÍA NO HAS COMPLETADO NINGUNA ORDEN</h4>
+
+      <fa-icon [icon]="faSadTear" style="color: rgb(2, 163, 169); font-size: 10rem;"></fa-icon>
+    </div>
+    <table class="table table-striped" *ngIf="ordenes.length != 0">
       <thead>
         <tr class="">
           <th scope="col" class=" p-0 th"><p class=" text-center  my-2">#</p></th>
@@ -16,7 +22,7 @@
          
         </tr>
       </thead>
-      <tbody>
+      <tbody >
         <tr *ngFor='let orden of ordenes, index as i'>
           <td class="text-center">{{i + 1}}</td>
           <td class="text-center">{{orden.fecha}}</td>

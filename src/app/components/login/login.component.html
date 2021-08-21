@@ -13,13 +13,13 @@
         <div class="d-flex justify-content-center">
             <div class="mt-4 ">
                 <form [formGroup]="loginForm">
-                    <input type="text" class="form-control font-weight-bold text-center" name="" formControlName="email"
+                    <input type="text" class="form-control font-weight-bold text-center w" name="" formControlName="email"
                         placeholder="Correo electrónico"><br>
                     <input type="password" class="form-control font-weight-bold text-center mb-2" formControlName="password"
                         placeholder="Contraseña">
                     <strong *ngIf="mensajeError" class="text-danger d-block text-center">{{mensajeError}}</strong>
-                    <div>
-                        <button type="button" (click)="ingresar()" class="bot mt-2 font-weight-bold  ml-4"
+                    <div class="d-flex justify-content-center">
+                        <button type="button" (click)="ingresar()" class="bot mt-2 font-weight-bold "
                         style="width: 155px;" placeholder="">Iniciar sesión</button>
                     </div> 
                     

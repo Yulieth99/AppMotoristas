@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {  faArrowAltCircleLeft, faHome} from '@fortawesome/free-solid-svg-icons';
+import {  faArrowAltCircleLeft, faSadTear} from '@fortawesome/free-solid-svg-icons';
 import { MotoristaService } from 'src/app/services/motorista.service';
 import { OrdenesService } from 'src/app/services/ordenes.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 
 @Component({
@@ -11,20 +12,51 @@ import { OrdenesService } from 'src/app/services/ordenes.service';
 })
 export class OrdersCompletedComponent implements OnInit {
   faArrowAltCircleLeft= faArrowAltCircleLeft;
-  idMotorista = '611f6ddfe4f8e12e70b06003'
+  faSadTear=faSadTear
+  
   
   ordenes:any =[]
+  idUsuarioActual:string = ''
+  usuario:any
 
   constructor(private motoristaService:MotoristaService,
-              private ordenesService:OrdenesService) { }
+              private ordenesService:OrdenesService,
+              private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
-    this.listarOrdenesEntregadas()
+    this.usuario = localStorage.getItem('usuario') 
+    this.obtenerIdUsuario()
   }
 
 
+  obtenerIdUsuario() {
+  
+    this.usuarioService.obtenerUsuarios().subscribe(
+      res => {
+        console.log("esta es la respuesta",res);
+        for (let i = 0; i < res.length; i++) {
+          let usuario = this.usuario.replace(/"/g, '');
+         
+          if(res[i].email == usuario){
+            
+            this.idUsuarioActual = res[i]._id;
+            this.listarOrdenesEntregadas()
+
+
+          }
+
+          
+        }
+
+        console.log('idUsuarioActual: ', this.idUsuarioActual);
+      }, error => {
+        console.error(error);
+      }
+    )
+  }
+
   listarOrdenesEntregadas(){
-    this.ordenesService.obtenerOrdenesEntregadas(this.idMotorista).subscribe(res=>{
+    this.ordenesService.obtenerOrdenesEntregadas(this.idUsuarioActual).subscribe(res=>{
       this.ordenes = res
       console.log("Ordenes entregadas",res)
      },error=>{

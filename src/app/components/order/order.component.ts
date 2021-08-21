@@ -4,6 +4,7 @@ import { OrdenesService } from 'src/app/services/ordenes.service';
 import { MotoristaService } from 'src/app/services/motorista.service';
 import { environment } from 'src/environments/environment';
 import { ProductosService } from 'src/app/services/productos.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -15,6 +16,8 @@ export class OrderComponent implements OnInit {
   faHome = faHome;
   verOrden= false
   productos:any =[]
+  idUsuarioActual:string = ''
+  usuario:any
 
   //orden a mostrar
   orden:any = []
@@ -23,12 +26,41 @@ export class OrderComponent implements OnInit {
 
   constructor(private ordenesService:OrdenesService,
               private motoristaService:MotoristaService,
-              private productosService:ProductosService) { }
+              private productosService:ProductosService,
+              private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
+    this.usuario = localStorage.getItem('usuario') 
+   this.obtenerIdUsuario()
+   console.log("este es el emal", this.usuario)
+   console.log("Este el ID DEL USUARIO", this.idUsuarioActual)
+
+  }
+
+  obtenerIdUsuario() {
+  
+    this.usuarioService.obtenerUsuarios().subscribe(
+      res => {
+        console.log("esta es la respuesta",res);
+        for (let i = 0; i < res.length; i++) {
+          let usuario = this.usuario.replace(/"/g, '');
+         
+          if(res[i].email == usuario){
+            
+            this.idUsuarioActual = res[i]._id;            
+
+          }     
+        }
+
+      }, error => {
+        console.error(error);
+      }
+    )
   }
 
   detalleOrden(idOrden:string){
+    this.ngOnInit()
+    console.log("ID ORDEN!!!!!!!!!!!", idOrden)
     this.orden = []
     this.ordenesService.obtenerDetalleOrden(idOrden).subscribe(res=>{    
       this.orden.push(res)
@@ -36,7 +68,7 @@ export class OrderComponent implements OnInit {
 
     //  setTimeout(()=>{; }, 3000);
       this.verOrden =  true
-      console.log("Ordene",this.orden)
+      console.log("ODERN A MOSTRAR",this.orden)
   
       },error=>{ 
         console.log(error);
@@ -47,13 +79,12 @@ export class OrderComponent implements OnInit {
   }
 
   tomarOrden(idOrden:string){
-    let idMotorista = '611f6ddfe4f8e12e70b06003'
-    this.motoristaService.tomarOrden(idMotorista, idOrden).subscribe(res=>{ 
+    this.motoristaService.tomarOrden(this.idUsuarioActual, idOrden).subscribe(res=>{ 
       this.verOrden = false
       let estado = "procesando"  
        let data ={
          "estado":"procesando",
-         "motorista":idMotorista
+         "motorista":this.idUsuarioActual
          }
 
       this.ordenesService.editarOrden(idOrden,data).subscribe(res=>{
@@ -78,25 +109,13 @@ export class OrderComponent implements OnInit {
   }
 
   obtenerProductos(){
-    console.log("jaaj",this.orden[0])
-for (let i = 0; i < this.orden[0].productos.length; i++) {
-    let idProducto = this.orden[0].productos[i]._id
-  console.log("idasss",idProducto)
-  this.productosService.obtenerDetalleProducto(idProducto).subscribe(res=>{    
-    this.productos.push(res)
-    console.log("prodi",this.productos)
-
-    },error=>{ 
-      console.log(error);
-    });
-
-  
+    this.productos = this.orden[0].productos
 }
     
 
  
   
 
-  }
+  
 
 }

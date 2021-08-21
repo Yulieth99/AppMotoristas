@@ -59,6 +59,7 @@ export class OrderComponent implements OnInit {
       this.ordenesService.editarOrden(idOrden,data).subscribe(res=>{
         this.onBack.emit()
 
+
            console.log("Esta es la respuesta",res)
        },error=>{
         console.log(error);

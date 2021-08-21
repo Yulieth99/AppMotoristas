@@ -52,6 +52,7 @@ export class OrdersDayComponent implements OnInit {
  }
  ver(){
    this.verOdernesDia = true
+   this.ngOnInit()
  }
 
 }

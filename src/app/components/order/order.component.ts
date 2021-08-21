@@ -32,8 +32,6 @@ export class OrderComponent implements OnInit {
   ngOnInit(): void {
     this.usuario = localStorage.getItem('usuario') 
    this.obtenerIdUsuario()
-   console.log("este es el emal", this.usuario)
-   console.log("Este el ID DEL USUARIO", this.idUsuarioActual)
 
   }
 
@@ -60,7 +58,7 @@ export class OrderComponent implements OnInit {
 
   detalleOrden(idOrden:string){
     this.ngOnInit()
-    console.log("ID ORDEN!!!!!!!!!!!", idOrden)
+
     this.orden = []
     this.ordenesService.obtenerDetalleOrden(idOrden).subscribe(res=>{    
       this.orden.push(res)
@@ -68,7 +66,7 @@ export class OrderComponent implements OnInit {
 
     //  setTimeout(()=>{; }, 3000);
       this.verOrden =  true
-      console.log("ODERN A MOSTRAR",this.orden)
+      //console.log("ODERN A MOSTRAR",this.orden)
   
       },error=>{ 
         console.log(error);
@@ -91,7 +89,7 @@ export class OrderComponent implements OnInit {
         this.onBack.emit()
 
 
-           console.log("Esta es la respuesta",res)
+        //   console.log("Esta es la respuesta",res)
        },error=>{
         console.log(error);
       });

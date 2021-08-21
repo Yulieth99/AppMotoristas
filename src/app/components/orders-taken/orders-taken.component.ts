@@ -38,21 +38,19 @@ export class OrdersTakenComponent implements OnInit {
         console.log("esta es la respuesta",res);
         for (let i = 0; i < res.length; i++) {
           let usuario = this.usuario.replace(/"/g, '');
-          console.log(typeof(this.usuario))
-          console.log("el email a probar",( res[i].email))
-         console.log("emails", usuario )
+          
           if(res[i].email == usuario){
             
             this.idUsuarioActual = res[i]._id;
             this.listarOrdenesTomadas()
-            console.log("SI ENTRE Y ES ESTA", this.idUsuarioActual)
+            //console.log("SI ENTRE Y ES ESTA", this.idUsuarioActual)
 
           }
 
           
         }
 
-        console.log('idUsuarioActual: ', this.idUsuarioActual);
+        //console.log('idUsuarioActual: ', this.idUsuarioActual);
       }, error => {
         console.error(error);
       }
@@ -61,14 +59,12 @@ export class OrdersTakenComponent implements OnInit {
 
 
   listarOrdenesTomadas(){
-    console.log("OK USUARIO A MOSTAR",this.idUsuarioActual)
     this.motoristaService.obtenerOrdenesTomadas(this.idUsuarioActual).subscribe(res=>{    
       this.ordersDay = res
    
 
     //  setTimeout(()=>{; }, 3000);
      
-      console.log("Ordene",this.ordersDay)
   
       },error=>{ 
         console.log(error);

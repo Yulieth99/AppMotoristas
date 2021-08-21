@@ -70,7 +70,7 @@ export class OrderTakenComponent implements OnInit {
   
     this.usuarioService.obtenerUsuarios().subscribe(
       res => {
-        console.log("esta es la respuesta",res);
+        //console.log("esta es la respuesta",res);
         for (let i = 0; i < res.length; i++) {
           let usuario = this.usuario.replace(/"/g, '');
          
@@ -97,7 +97,7 @@ export class OrderTakenComponent implements OnInit {
       }
         this.ordenesService.editarOrden(this.idOrden,data).subscribe(res=>{
   
-          console.log("Esta es la respuesta de la orden en camino",res)
+         // console.log("Esta es la respuesta de la orden en camino",res)
       },error=>{
        console.log(error);
      });
@@ -111,7 +111,7 @@ export class OrderTakenComponent implements OnInit {
   
         this.ordenesService.editarOrden(this.idOrden,data).subscribe(res=>{
   
-          console.log("Esta es la respuesta de una orden enntregada",res)
+         // console.log("Esta es la respuesta de una orden enntregada",res)
          },error=>{
           console.log(error);
         });

@@ -11,7 +11,7 @@
             <p class="font-weight-bold">Código orden: <span class="font-weight-normal">{{orden._id}}</span></p>
         </div>
         <div>
-            <p class="font-weight-bold">Nombre </p>
+            <p class="font-weight-bold">Nombre  {{orden.estado}}</p>
             <p class="font-weight-bold">establecimiento: <span class="font-weight-normal">{{orden.comercio  .nombreComercio}}</span></p>
         </div>
         <div>
@@ -22,11 +22,10 @@
         </div>
         <div class=" col-auto my-4 p-0">
             <label class=" sr-only" for="inlineFormCustomSelect">Preference</label>
-            <p class="font-weight-bold" style="display: inline;">Estado de orden</p>
-            <select class=" form-control custom-select ml-2" [(ngModel)]="estado" (change)="cambiarEsadotOrden()" style="width: 250px;" id="inlineFormCustomSelect">
-              <option selected>En proceso</option>
-              <option class="" value="1">En camino</option>
-              <option class="" value="2">Completada</option>
+            <p class="font-weight-bold" style="display: inline;">Cambiar estado de orden</p>
+            <select class=" form-control form-select custom-select ml-2" [(ngModel)]="estado" (change)="cambiarEsadotOrden()" style="width: 250px;" id="inlineFormCustomSelect">
+              <option *ngIf="orden.estado === 'procesando'" class="" value="1">En camino</option>
+             <option *ngIf="orden.estado === 'camino'" class="" value="2">Completada</option>
               
             </select>
           </div>

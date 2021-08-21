@@ -35,7 +35,7 @@ export class OrdersDayComponent implements OnInit {
   let date = d.getDate() + "-" + d.getMonth() + "-" + d.getFullYear();
   this.ordenesService.obtenerOrdenesDia(date).subscribe(res=>{    
     this.ordersDay = res
-    console.log("Ordenes dia",this.ordersDay)
+    //console.log("Ordenes dia",this.ordersDay)
 
     },error=>{
       console.log(error);

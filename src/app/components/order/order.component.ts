@@ -18,6 +18,7 @@ export class OrderComponent implements OnInit {
   productos:any =[]
   idUsuarioActual:string = ''
   usuario:any
+  total:number = 0; 
 
   //orden a mostrar
   orden:any = []
@@ -108,6 +109,8 @@ export class OrderComponent implements OnInit {
 
   obtenerProductos(){
     this.productos = this.orden[0].productos
+    this.total = this.productos.map((prod: { cantidad: number; precio: number; }) => prod.cantidad*prod.precio);
+    console.log(this.total);
 }
     
 
